@@ -1,0 +1,34 @@
+{
+  "requests": [
+    {
+      "prompt": "Cinematic shot of a green Kawasaki Ninja sportbike leaning into a curve on a mountain highway, motion blur, dramatic sunset golden hour lighting, dark asphalt, mountains in the background, shot on Arri Alexa, 35mm lens, hyper-realistic, 8k resolution, wide angle",
+      "aspect_ratio": "21:9",
+      "resolution": "2K"
+    },
+    {
+      "prompt": "Close-up detail of a green Kawasaki Ninja motorcycle engine bay with exposed electronic wiring, ECU, fuel injectors, voltage regulator, carbon fiber details, dark workshop background with green accent lights, hyper-detailed macro photography, 8k, cinematic lighting",
+      "aspect_ratio": "16:9",
+      "resolution": "2K"
+    },
+    {
+      "prompt": "Professional mechanic hands using a digital diagnostic scanner on a green sportbike motorcycle ECU, dark workshop with green neon accent lights, laptop showing electronic diagnostic data, carbon fiber workbench, hyper-detailed cinematic photography, 8k",
+      "aspect_ratio": "16:9",
+      "resolution": "2K"
+    },
+    {
+      "prompt": "Green sportbike motorcycle on a lift in a futuristic dark workshop, mechanic in dark overalls inspecting the undercarriage, neon green LED accent lighting, carbon fiber details, industrial atmosphere, cinematic wide shot, 8k photography",
+      "aspect_ratio": "16:9",
+      "resolution": "2K"
+    },
+    {
+      "prompt": "Before and after split view of a green Kawasaki Ninja motorcycle restoration, left side rusty old neglected bike, right side pristine restored shiny green paint, dramatic lighting, hyper-realistic photography, 8k",
+      "aspect_ratio": "16:9",
+      "resolution": "2K"
+    },
+    {
+      "prompt": "Top down view of motorcycle electrical components laid out on a carbon fiber workbench, ECU, CDI, voltage regulator, ignition coil, spark plugs, wiring harness, all illuminated with dramatic green accent lighting, dark background, hyper-detailed 8k photography",
+      "aspect_ratio": "16:9",
+      "resolution": "2K"
+    }
+  ]
+}
