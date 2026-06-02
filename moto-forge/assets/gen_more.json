@@ -1,0 +1,19 @@
+{
+  "requests": [
+    {
+      "prompt": "Dark workshop service icons collection, wrench tool icon, engine diagnostic icon, motorcycle maintenance icon, speedometer icon, all in neon orange color on black background, minimal futuristic line art style, HUD interface elements",
+      "aspect_ratio": "1:1",
+      "resolution": "1K"
+    },
+    {
+      "prompt": "Futuristic motorcycle service course, mechanic hands working on sport bike engine, dark workshop lighting, sparks, professional training environment, cinematic photography, dark tones with orange accent lights",
+      "aspect_ratio": "16:9",
+      "resolution": "1K"
+    },
+    {
+      "prompt": "Abstract carbon fiber texture background, dark black gray pattern, futuristic industrial material, seamless tileable, high detail macro photography of carbon weave pattern",
+      "aspect_ratio": "16:9",
+      "resolution": "1K"
+    }
+  ]
+}
