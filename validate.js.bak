@@ -1,0 +1,48 @@
+// Quick validation script - check all referenced assets exist
+const fs = require('fs');
+const path = require('path');
+
+const projectDir = 'C:\\Users\\Claudiop\\Documents\\Mecanica Oscar\\moto-forge';
+const indexPath = path.join(projectDir, 'index.html');
+
+const html = fs.readFileSync(indexPath, 'utf-8');
+
+// Extract all image/video src references
+const assetRefs = [];
+const imgRegex = /url\(['"]?([^'")]+)['"]?\)/g;
+const srcRegex = /src="([^"]+)"/g;
+const bgImageRegex = /background-image:\s*url\(['"]?([^'")]+)['"]?\)/g;
+
+let match;
+
+// Find CSS url() references
+while ((match = imgRegex.exec(html)) !== null) {
+  if (!match[1].startsWith('http') && !match[1].startsWith('data:')) {
+    assetRefs.push(match[1]);
+  }
+}
+
+// Find background-image
+while ((match = bgImageRegex.exec(html)) !== null) {
+  if (!match[1].startsWith('http') && !match[1].startsWith('data:')) {
+    assetRefs.push(match[1]);
+  }
+}
+
+console.log('Asset references found:', assetRefs.length);
+let allOk = true;
+
+assetRefs.forEach(ref => {
+  // Resolve relative path
+  const cleanRef = ref.replace(/^\.\//, '').replace(/^\//, '');
+  const fullPath = path.join(projectDir, cleanRef);
+  const exists = fs.existsSync(fullPath);
+  const status = exists ? 'OK' : 'MISSING';
+  console.log(`  [${status}] ${ref}`);
+  if (!exists) {
+    allOk = false;
+  }
+});
+
+console.log('\n' + (allOk ? 'ALL ASSETS PRESENT' : 'SOME ASSETS MISSING'));
+process.exit(allOk ? 0 : 1);
