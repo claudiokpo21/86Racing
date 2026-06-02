@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>86 Racing | Taller Especializado en Motocicletas — Electricidad & Inyección</title>
+<meta name="description" content="86 Racing - Taller especializado en electricidad automotriz, electrónica e inyección para motocicletas. Técnico matriculado con +6 años de experiencia. Diagnóstico computarizado y cursos de formación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222222;
+    --accent: #65b32e;
+    --accent-glow: #8fdb4d;
+    --accent-secondary: #4a8520;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --border: #2a2a2a;
+    --border-hover: #65b32e;
+    --glow: rgba(101, 179, 46, 0.4);
+    --glow-soft: rgba(101, 179, 46, 0.15);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+
+  .navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 14px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+  }
+
+  .logo-mark {
+    min-width: 44px;
+    height: 38px;
+    padding: 0 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #000;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .logo-text {
+    color: var(--text-primary);
+  }
+
+  .logo-text span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 8px var(--glow);
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #000 !important;
+    padding: 10px 22px;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta::after {
+    display: none !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 20px var(--glow);
+    transform: translateY(-2px);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 8px;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 120px 24px 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('./assets/hero-moto.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    filter: brightness(0.5) contrast(1.1);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.95) 100%);
+    z-index: -1;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    z-index: -1;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 1000px;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--glow-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 24px;
+    border-radius: 2px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    text-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+  }
+
+  .hero h1 .accent {
+    color: var(--accent);
+    text-shadow: 0 0 40px var(--glow);
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 8px 30px var(--glow);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+
+  .btn-secondary:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 8px 30px var(--glow);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    text-align: center;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin: 8px auto 0;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ============ SECTIONS ============ */
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-title .label {
+    display: inline-block;
+    color: var(--accent);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    margin-bottom: 12px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 16px auto 0;
+    box-shadow: 0 0 15px var(--glow);
+  }
+
+  .section-title p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 17px;
+  }
+
+  /* ============ SERVICES ============ */
+  #services {
+    background: var(--bg-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 40px 32px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--glow-soft);
+    background: var(--bg-card-hover);
+  }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--accent);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover .service-icon {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .service-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .service-card p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .service-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+  }
+
+  .service-link:hover {
+    gap: 14px;
+  }
+
+  /* ============ CURSOS ============ */
+  #cursos {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #0d0d0d 100%);
+    position: relative;
+  }
+
+  #cursos::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('./assets/carbon-texture.jpg');
+    background-size: cover;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+  }
+
+  .curso-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .curso-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--glow-soft);
+  }
+
+  .curso-image {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .curso-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(26, 26, 26, 0.9) 100%);
+  }
+
+  .curso-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--accent);
+    color: #000;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    z-index: 2;
+    border-radius: 2px;
+  }
+
+  .curso-content {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .curso-tag {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+
+  .curso-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .curso-content p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .curso-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .curso-price {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .curso-price .label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .curso-price .amount {
+    color: var(--accent);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  .curso-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 10px 18px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .curso-btn:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  /* ============ STATS ============ */
+  #stats {
+    background: var(--bg-secondary);
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  #stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('./assets/carbon-texture.jpg');
+    background-size: cover;
+    opacity: 0.05;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .stat-item h3 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--accent);
+    font-weight: 900;
+    text-shadow: 0 0 20px var(--glow);
+    margin-bottom: 8px;
+  }
+
+  .stat-item p {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ============ CONTACT ============ */
+  #contact {
+    background: var(--bg-primary);
+  }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .contact-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .contact-info h3 span {
+    color: var(--accent);
+  }
+
+  .contact-info > p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    margin-bottom: 32px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-detail:hover {
+    border-color: var(--accent);
+  }
+
+  .contact-detail-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--glow-soft);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .contact-detail-text strong {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .contact-detail-text span {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .contact-form {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 50px;
+    height: 3px;
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--glow);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--glow-soft);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .form-submit:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 8px 25px var(--glow);
+    transform: translateY(-2px);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: #050505;
+    border-top: 1px solid var(--border);
+    padding: 60px 0 30px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand p {
+    color: var(--text-secondary);
+    margin: 16px 0;
+    font-size: 15px;
+    max-width: 300px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .footer-social a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+
+  .footer-social a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 15px var(--glow-soft);
+    transform: translateY(-3px);
+  }
+
+  .footer-col h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    color: var(--text-secondary);
+    font-size: 15px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-col ul li a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+
+  .footer-bottom .accent {
+    color: var(--accent);
+  }
+
+  /* ============ ANIMATIONS ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .nav-links {
+      position: fixed;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      max-width: 320px;
+      height: calc(100vh - 70px);
+      background: var(--bg-secondary);
+      flex-direction: column;
+      padding: 40px 24px;
+      align-items: flex-start;
+      gap: 24px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      border-left: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+      transform: translateX(0);
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+      padding: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-content">
+    <a href="#" class="logo">
+      <div class="logo-mark">86</div>
+      <div class="logo-text">86<span>RACING</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#stats">Nosotros</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#contact" class="nav-cta">Reservar Turno</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <span class="hero-tag">// Electricidad & Electrónica Automotriz — Motocicletas</span>
+    <h1>86 <span class="accent">RACING</span></h1>
+    <p>Especialistas en electricidad, electrónica e inyección para motocicletas. Técnico matriculado con más de 6 años de experiencia. Diagnóstico computarizado, reparación eléctrica y formación profesional.</p>
+    <div class="hero-buttons">
+      <a href="#cursos" class="btn btn-primary">
+        VER CURSOS
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn btn-secondary">
+        EXPLORAR SERVICIOS
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">// 01 — Servicios</span>
+      <h2>Lo que Hacemos</h2>
+      <p>Especialistas en sistemas eléctricos y electrónicos de motocicletas. Cada diagnóstico, cada reparación, cada curso — respaldado por un técnico matriculado con más de 6 años de experiencia.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>Diagnóstico Computarizado</h3>
+        <p>Escaneo electrónico completo. Detectamos fallas en ECU, sensores, sistemas de inyección y módulos electrónicos con equipos de última generación.</p>
+        <a href="#contact" class="service-link">Consultar precio →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </div>
+        <h3>Electricidad Automotriz</h3>
+        <p>Reparación de cableados, reguladores, rectificadores, estatores, sistemas de arranque y carga. Especialidad del taller.</p>
+        <a href="#contact" class="service-link">Solicitar diagnóstico →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Inyección Electrónica</h3>
+        <p>Limpieza de inyectores, calibración de ECU, mapas de inyección, diagnóstico de fallas en sistema de combustible electrónico.</p>
+        <a href="#contact" class="service-link">Ver servicio →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>Sensores & Módulos</h3>
+        <p>Reparación y reemplazo de sensores (MAP, TPS, IAT, O2), módulos CDI, ECU y centrales electrónicas de todo tipo de摩托车.</p>
+        <a href="#contact" class="service-link">Consultar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURSOS ============ -->
+<section id="cursos">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">// 02 — Academia</span>
+      <h2>Cursos & Formación</h2>
+      <p>Aprendé electricidad y electrónica de motos de la mano de un técnico matriculado. Cursos teórico-prácticos para todos los niveles.</p>
+    </div>
+    <div class="cursos-grid">
+      <div class="curso-card reveal">
+        <div class="curso-image" style="background-image: url('./assets/course-workshop.jpg');">
+          <span class="curso-badge">Popular</span>
+        </div>
+        <div class="curso-content">
+          <span class="curso-tag">Nivel Inicial</span>
+          <h3>Electricidad Básica de Motos</h3>
+          <p>8 clases teórico-prácticas. Aprendé sistemas eléctricos fundamentales: batería, arranque, carga, iluminación y cableados.</p>
+          <div class="curso-meta">
+            <div class="curso-price">
+              <span class="label">Desde</span>
+              <span class="amount">$45K</span>
+            </div>
+            <button class="curso-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Info</button>
+          </div>
+        </div>
+      </div>
+      <div class="curso-card reveal">
+        <div class="curso-image" style="background-image: url('./assets/course-workshop.jpg');">
+          <span class="curso-badge">Estrella</span>
+        </div>
+        <div class="curso-content">
+          <span class="curso-tag">Nivel Intermedio</span>
+          <h3>Electrónica & Inyección Electrónica</h3>
+          <p>12 clases intensivas. Dominá sensores (MAP, TPS, IAT, O2), ECU, sistemas de inyección, scanner profesional y diagnosis computarizada.</p>
+          <div class="curso-meta">
+            <div class="curso-price">
+              <span class="label">Desde</span>
+              <span class="amount">$85K</span>
+            </div>
+            <button class="curso-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Info</button>
+          </div>
+        </div>
+      </div>
+      <div class="curso-card reveal">
+        <div class="curso-image" style="background-image: url('./assets/course-workshop.jpg');">
+          <span class="curso-badge">Pro</span>
+        </div>
+        <div class="curso-content">
+          <span class="curso-tag">Nivel Avanzado</span>
+          <h3>Reparación de Módulos & Centrales</h3>
+          <p>16 clases hands-on. Reparación de CDI, ECU, módulos de inyección, immobilizers y centrales electrónicas de todas las marcas.</p>
+          <div class="curso-meta">
+            <div class="curso-price">
+              <span class="label">Desde</span>
+              <span class="amount">$140K</span>
+            </div>
+            <button class="curso-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Info</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <h3 data-target="6">0</h3>
+        <p>Años de experiencia</p>
+      </div>
+      <div class="stat-item reveal">
+        <h3 data-target="500">0</h3>
+        <p>Motos reparadas</p>
+      </div>
+      <div class="stat-item reveal">
+        <h3 data-target="30">0</h3>
+        <p>Marcas atendidas</p>
+      </div>
+      <div class="stat-item reveal">
+        <h3>100%</h3>
+        <p>Técnico matriculado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">// 03 — Contacto</span>
+      <h2>Hablemos</h2>
+      <p>Pedí tu turno, consultá por un curso o resolvemos tus dudas técnicas.</p>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info reveal">
+        <h3>Tu moto en <span>manos expertas.</span></h3>
+        <p>Atendemos en nuestro taller. Diagnóstico profesional con tecnología de punta, presupuestos sin cargo y garantía sobre todos los trabajos.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Taller Central</strong>
+            <span>Av. Libertador 3450, CABA</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>WhatsApp Directo</strong>
+            <span>+54 9 11 5555 0000</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span>contacto@motoforge.com.ar</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Horario</strong>
+            <span>Lun-Vie 9-19 / Sáb 9-14</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('¡Gracias! Te contactamos pronto.');">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label>Email / WhatsApp</label>
+          <input type="text" placeholder="email@ejemplo.com" required>
+        </div>
+        <div class="form-group">
+          <label>Motivo de consulta</label>
+          <select required>
+            <option value="">Seleccionar...</option>
+            <option>Diagnóstico Computarizado</option>
+            <option>Electricidad Automotriz</option>
+            <option>Inyección Electrónica</option>
+            <option>Sensores & Módulos</option>
+            <option>Consulta sobre curso</option>
+            <option>Inscripción a curso</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="Contanos sobre tu moto y lo que necesitás..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar Consulta</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-mark">86</div>
+          <div class="logo-text">86<span>RACING</span></div>
+        </a>
+        <p>Taller especializado en electricidad, electrónica e inyección para motocicletas. Técnico matriculado con +6 años de experiencia.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#services">Diagnóstico Computarizado</a></li>
+          <li><a href="#services">Electricidad</a></li>
+          <li><a href="#services">Inyección Electrónica</a></li>
+          <li><a href="#services">Sensores & Módulos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Academia</h4>
+        <ul>
+          <li><a href="#cursos">Electricidad Básica</a></li>
+          <li><a href="#cursos">Electrónica & Inyección</a></li>
+          <li><a href="#cursos">Reparación de Módulos</a></li>
+          <li><a href="#contact">Inscripción</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#contact">+54 9 11 5555 0000</a></li>
+          <li><a href="#contact">contacto@motoforge.com.ar</a></li>
+          <li><a href="#contact">Av. Libertador 3450</a></li>
+          <li><a href="#contact">Lun-Vie 9-19</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <span class="accent">86 Racing</span> — Electricidad & Electrónica para Motocicletas. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Count up animation
+  const counters = document.querySelectorAll('[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = +el.getAttribute('data-target');
+        let current = 0;
+        const increment = target / 60;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = Math.floor(current).toLocaleString('es-AR');
+          if (el.nextElementSibling && el.nextElementSibling.textContent.includes('Marcas')) {
+            el.textContent = Math.floor(current) + '+';
+          }
+        }, 25);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => counterObserver.observe(c));
+</script>
+
+</body>
+</html>
